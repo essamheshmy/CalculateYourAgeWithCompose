@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -24,6 +25,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.heshmy.calculateyouragewithcompose.dada.model.Person
+
 
 @Composable
 @Preview(showBackground = true, showSystemUi =true)
@@ -36,6 +40,7 @@ fun HomeScrin(modifier: Modifier){
     //   GlobalScope.launch { localViewModel.db.addPerson(Person("essam",2004)) }
     //  var person=viewModel.calculiteAge(name,age)
 
+    val viewModel: PersonViewModel = viewModel()
     var name by rememberSaveable { mutableStateOf("") }
     var age by rememberSaveable { mutableStateOf(0) }
     var nameTextfield by rememberSaveable { mutableStateOf("") }
@@ -83,7 +88,7 @@ fun HomeScrin(modifier: Modifier){
                 value = ageTextfield.toString(),
                 onValueChange ={ ageTextfield=it.toInt()},
                 label = {
-                    Text(text = "enter your age")
+                    Text(text = "Enter your date of birth")
                         },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
@@ -92,9 +97,9 @@ fun HomeScrin(modifier: Modifier){
                 modifier= Modifier.fillMaxWidth().height(54.dp),
                 shape = RoundedCornerShape(10.dp),
                 onClick = {
-
-                  name=nameTextfield //person.name.toString()
-                  age= ageTextfield //person.age!!
+                var person :Person = viewModel.calculiteAge(nameTextfield,ageTextfield)
+                    name= person.name.toString()
+                    age= person.age!!
                 }
 
             ) {
@@ -103,10 +108,6 @@ fun HomeScrin(modifier: Modifier){
                     fontSize = 24.sp,
                     color = Color.White)
             }
-
-
-
         }
-
     }
 }
