@@ -1,4 +1,4 @@
-package com.heshmy.calculateyouragewithcompose.ui.theme
+package com.heshmy.calculateyouragewithcompose.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
