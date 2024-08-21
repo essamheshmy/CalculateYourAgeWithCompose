@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -68,8 +69,17 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    // ViewModel
-    //implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     // ViewModel utilities for Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
+
+    // To use Kotlin annotation processing tool (kapt)
+   // kapt("androidx.room:room-compiler:$room_version")
+    // To use Kotlin Symbol Processing (KSP)
+   //ksp("androidx.room:room-compiler:$room_version")
 }
