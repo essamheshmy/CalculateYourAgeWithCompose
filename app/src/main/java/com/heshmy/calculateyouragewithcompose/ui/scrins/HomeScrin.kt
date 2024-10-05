@@ -24,8 +24,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 //import androidx.lifecycle.viewmodel.compose.viewModel
 import com.heshmy.calculateyouragewithcompose.CalculateApplication
+import com.heshmy.calculateyouragewithcompose.dada.model.Person
 //import com.heshmy.calculateyouragewithcompose.dada.local.PersonDatabase
 //import com.heshmy.calculateyouragewithcompose.dada.model.Person
 //import com.heshmy.calculateyouragewithcompose.dada.repository.LocalRepository
@@ -43,10 +45,10 @@ fun HomePreview(){
 
 @Composable
 fun HomeScrin(modifier: Modifier){
-    //   GlobalScope.launch { localViewModel.db.addPerson(Person("essam",2004)) }
+    //  GlobalScope.launch { localViewModel.db.addPerson(Person("essam",2004)) }
     //  var person=viewModel.calculiteAge(name,age)
 
-    //val viewModel: PersonViewModel = viewModel()
+    val viewModel: PersonViewModel = viewModel()
     var name by rememberSaveable { mutableStateOf("") }
     var age by rememberSaveable { mutableStateOf(0) }
     var nameTextfield by rememberSaveable { mutableStateOf("") }
@@ -101,13 +103,13 @@ fun HomeScrin(modifier: Modifier){
                 modifier= Modifier.fillMaxWidth().height(54.dp),
                 shape = RoundedCornerShape(10.dp),
                 onClick = {
-                   // var person :Person = viewModel.calculiteAge(nameTextfield,ageTextfield)
-                  //  name= person.name.toString()
-                   // age= person.age!!
+                    var person : Person = viewModel.calculiteAge(nameTextfield,ageTextfield)
+                    name= person.name.toString()
+                    age= person.age!!
 
                     GlobalScope.launch {
 
-                  // viewModel.addPerson(person)
+                   //viewModel.addPerson(person)
 
                     }
                 }
