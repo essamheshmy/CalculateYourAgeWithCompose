@@ -10,6 +10,12 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import com.heshmy.calculateyouragewithcompose.presentation.ui.theme.Pink40
+import com.heshmy.calculateyouragewithcompose.presentation.ui.theme.Pink80
+import com.heshmy.calculateyouragewithcompose.presentation.ui.theme.Purple40
+import com.heshmy.calculateyouragewithcompose.presentation.ui.theme.Purple80
+import com.heshmy.calculateyouragewithcompose.presentation.ui.theme.PurpleGrey40
+import com.heshmy.calculateyouragewithcompose.presentation.ui.theme.PurpleGrey80
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -52,7 +58,7 @@ fun CalculateYourAgeWithComposeTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+      //  typography = Typography,
         content = content
     )
 }
