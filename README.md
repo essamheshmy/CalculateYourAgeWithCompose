@@ -7,14 +7,20 @@ Its goal is to understand how to use development methodologies and how to use de
 
 Some of the things that were used in this application
 
-1- onion architecture
+* [1- onion architecture]
+* [2- MVVM]
+* [3- JetpackCompose]
+* [4- ViewModel]
+* [5- Repository]
+* [6- single responsibility principle]
+* [5- Repository]
 
-2- MVVM
 
-3- JetpackCompose
 
-4- ViewModel
 
-5- Repository
 
-6- single responsibility principle
+
+
+
+
+
